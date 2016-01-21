@@ -32,15 +32,17 @@ class MainActivity : AppCompatActivity(), LocationListener {
     }
 
     private fun showLocationViewIfPermissionGranted() {
-        if (isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION)) {
+        if (isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION))
             startLocationListener()
-        } else {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                MapViewActivity.start(this)
-            } else {
-                requestPermission(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION))
-            }
-        }
+        else
+            requestForPermission()
+    }
+
+    private fun requestForPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION))
+            MapViewActivity.start(this)
+         else
+            requestPermission(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION))
     }
 
     private fun isPermissionGranted(permission: String): Boolean {

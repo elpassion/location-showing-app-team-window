@@ -43,7 +43,7 @@ class MapViewActivity : AppCompatActivity(){
         val latitude = intent.getDoubleExtra(latitudeKey, latitudeWarsaw )
         val longitude = intent.getDoubleExtra(longitudeKey, longitudeWarsaw )
         Glide.with(image.context)
-                .load("https://maps.googleapis.com/maps/api/staticmap?center=$latitude,$longitude&zoom=10&size=600x300&key=AIzaSyC8Cl3TYbzkZ6bb8_fwKeMhFvx_Be6B0CY")
+                .load("https://maps.googleapis.com/maps/api/staticmap?center=$latitude,$longitude&zoom=10&size=350x550&key=AIzaSyC8Cl3TYbzkZ6bb8_fwKeMhFvx_Be6B0CY")
                 .into(image)
         if (isMessageToUserRequired()){
             message.text = messageText
